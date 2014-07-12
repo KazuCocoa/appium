@@ -37,6 +37,7 @@ desired_caps = {
   caps:       {
     platformName:  'iOS',
     versionNumber: '7.1',
+    deviceName:      'iPhone Simulator',
     app:           APP_PATH,
   },
   appium_lib: {
@@ -59,8 +60,7 @@ module Calculator
     expected_sum = values.reduce(&:+)
 
     # Find every textfield.
-    elements     = textfields
-
+    elements     = finds('TextField')
     elements.each_with_index do |element, index|
       element.type values[index]
     end
