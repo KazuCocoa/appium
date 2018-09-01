@@ -14,6 +14,19 @@ if os.getenv('SAUCE_USERNAME') and os.getenv('SAUCE_ACCESS_KEY'):
 else:
     EXECUTOR = 'http://127.0.0.1:4723/wd/hub'
 
+def wda_port():
+    if os.getenv('PYTEST_XDIST_WORKER') == 'gw1':
+        return 8101
+    else: # include 'master' and 'gw0'
+        return 8100
+
+def iphone_device_name():
+    if os.getenv('PYTEST_XDIST_WORKER') == 'gw0':
+        return 'iPhone 6 - 8100'
+    elif os.getenv('PYTEST_XDIST_WORKER') == 'gw1':
+        return 'iPhone 6 - 8101'
+    else: # default
+        return 'iPhone 6'
 
 def ensure_dir(directory):
     if not os.path.exists(directory):

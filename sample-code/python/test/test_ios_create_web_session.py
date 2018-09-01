@@ -2,14 +2,14 @@ import pytest
 import os
 
 from appium import webdriver
-from helpers import take_screenhot_and_syslog, EXECUTOR
+from helpers import take_screenhot_and_syslog, EXECUTOR, wda_port, iphone_device_name
 from selenium.common.exceptions import InvalidSessionIdException
 
 
 class TestIOSCreateWebSession():
 
     @pytest.fixture(scope='function')
-    def driver(self, request, device_logger):
+    def driver(self, request):
         calling_request = request._pyfuncitem.name
         driver = webdriver.Remote(
             command_executor=EXECUTOR,
@@ -17,15 +17,16 @@ class TestIOSCreateWebSession():
                 'platformName': 'iOS',
                 'automationName': 'XCUITest',
                 'platformVersion': os.getenv('IOS_PLATFORM_VERSION') or '10.3',
-                'deviceName': os.getenv('IOS_DEVICE_NAME') or 'iPhone 6s',
-                'browserName': 'Safari'
+                'deviceName': os.getenv('IOS_DEVICE_NAME') or iphone_device_name(),
+                'browserName': 'Safari',
+                'wdaLocalPort': wda_port(),
             }
         )
 
-        def fin():
-            take_screenhot_and_syslog(driver, device_logger, calling_request)
+        # def fin():
+        #     take_screenhot_and_syslog(driver, device_logger, calling_request)
 
-        request.addfinalizer(fin)
+        # request.addfinalizer(fin)
 
         driver.implicitly_wait(10)
         return driver

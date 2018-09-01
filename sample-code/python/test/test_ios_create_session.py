@@ -2,7 +2,7 @@ import unittest
 import os
 
 from appium import webdriver
-from helpers import take_screenhot_and_syslog, IOS_APP_PATH, EXECUTOR
+from helpers import take_screenhot_and_syslog, IOS_APP_PATH, EXECUTOR, wda_port, iphone_device_name
 from selenium.common.exceptions import InvalidSessionIdException
 
 
@@ -16,8 +16,9 @@ class TestIOSSelectors(unittest.TestCase):
                 'app': IOS_APP_PATH,
                 'platformName': 'iOS',
                 'automationName': 'XCUITest',
-                'platformVersion': os.getenv('IOS_PLATFORM_VERSION') or '11.1',
-                'deviceName': os.getenv('IOS_DEVICE_NAME') or 'iPhone 6s',
+                'platformVersion': os.getenv('IOS_PLATFORM_VERSION') or '10.3',
+                'deviceName': os.getenv('IOS_DEVICE_NAME') or iphone_device_name(),
+                'wdaLocalPort': wda_port(),
             }
         )
         self.driver.implicitly_wait(10)

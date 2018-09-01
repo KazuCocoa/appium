@@ -18,6 +18,14 @@ py.test test
 py.test test/test_ios_selectors.py
 ```
 
+### Run tests in parallel
+
+```
+$ pip install pytest-xdist
+$ py.test -n 2 test/test_ios_*
+```
+
+
 ## TestCase
 ### unittest based
 - test/test_android_create_session.py
