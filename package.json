@@ -53,7 +53,7 @@
     "appium-uiautomator2-driver": "1.x",
     "appium-windows-driver": "1.x",
     "appium-xcuitest-driver": "^2.116.3",
-    "appium-webdriveragent": "appium/WebDriverAgent#support_new_snapshot",
+    "appium-webdriveragent": "appium/WebDriverAgent#master",
     "appium-youiengine-driver": "^1.2.0",
     "argparse": "^1.0.10",
     "async-lock": "^1.0.0",
