@@ -1,0 +1,33 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - github-username
+  labels:
+  - label-name
+  ignore:
+  - dependency-name: sinon
+    versions:
+    - 10.0.0
+  - dependency-name: mocha
+    versions:
+    - 8.2.1
+    - 8.3.0
+    - 8.3.1
+  - dependency-name: appium-base-driver
+    versions:
+    - 7.4.1
+    - 7.4.2
+    - 7.5.0
+    - 7.5.1
+  - dependency-name: dateformat
+    versions:
+    - 4.5.0
+  - dependency-name: appium-fake-driver
+    versions:
+    - 2.0.1
