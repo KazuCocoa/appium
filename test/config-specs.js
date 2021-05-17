@@ -145,8 +145,8 @@ describe('Config', function () {
       describe('unsupported nodes', function () {
         const unsupportedVersions = [
           'v0.1', 'v0.9.12', 'v0.10.36', 'v0.12.14',
-          'v4.4.7', 'v5.7.0', 'v6.3.1', 'v7.1.1',
-          'v8.0.0', 'v9.2.3', 'v10.1.0',
+          'v4.4.7', 'v5.7.0', 'v6.3.1', 'v7.1.1', 'v8.1.2',
+          'v9.1.2', 'v10.0.1', 'v11.6.0'
         ];
         for (const version of unsupportedVersions) {
           it(`should fail if node is ${version}`, function () {
