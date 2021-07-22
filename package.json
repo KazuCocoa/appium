@@ -64,7 +64,7 @@
     "find-root": "^1.1.0",
     "lodash": "^4.17.11",
     "longjohn": "^0.2.12",
-    "npmlog": "4.x",
+    "npmlog": "5.x",
     "request": "^2.81.0",
     "request-promise": "4.x",
     "semver": "^7.0.0",
